@@ -2,12 +2,14 @@ import axios from 'axios';
 import qs from 'qs';
 import { AXIOS_DEFAULT_CONFIG } from './axiosConfig';
 import { isObject, isArray, isBoolean, pickBy, isNumber, isString } from 'lodash';
-// import { requestFailFunc, requestSuccessFunc, responseFailFunc, responseSuccessFunc } from './axiosInterceptors';
+import { requestFailFunc, requestSuccessFunc, responseFailFunc, responseSuccessFunc } from './axiosInterceptors';
 
 /**
  * @param config 请求参数 拓展了过滤|序列化|请求提前拦截 filterParams stringify advance
  */
-export default function request(config: YZSRequest): any {
+// 是否在网络层进行拦截 | 导出时用到
+export type Response<ADVANCE = false> = ADVANCE extends true ? YZSResponse | Promise<YZSResponse> | undefined : YZSResponse['data'] | Promise<YZSResponse['data']> | undefined;
+export default function request(config: Partial<YZSRequest>): Response<typeof config.advance>{
   let { url, method, filterParams = true, stringify = false, params = {}, data = {} } = config || {};
   // 首字符应该为“/”
   if (typeof url === 'string' && !/^\//.test(url)) {
@@ -41,8 +43,8 @@ export default function request(config: YZSRequest): any {
     }
   });
 
-  // xiosInstance.interceptors.request.use(requestSuccessFunc, requestFailFunc);
-  // xiosInstance.interceptors.response.use(responseSuccessFunc, responseFailFunc);
+  xiosInstance.interceptors.request.use(requestSuccessFunc, requestFailFunc);
+  xiosInstance.interceptors.response.use(responseSuccessFunc, responseFailFunc);
 
   return xiosInstance(config);
 }

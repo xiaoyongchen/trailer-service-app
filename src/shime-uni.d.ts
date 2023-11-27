@@ -5,12 +5,11 @@ declare module "vue" {
   interface ComponentCustomOptions extends Hooks {}
 }
 
-import { AxiosRequestConfig, AxiosResponse, Method } from 'axios';
+import { InternalAxiosRequestConfig,  AxiosRequest, AxiosResponse, Method } from 'axios';
 
 declare global {
 
-  interface YZSRequest extends AxiosRequestConfig<any> {
-    method: Method,
+  interface YZSRequest<T = any> extends InternalAxiosRequestConfig<T> {
     // 常见的媒体格式
     contentType?: 'application/json' | 'application/x-www-form-urlencoded' | 'multipart/form-data' | 'application/octet-stream';
     showLoading?: boolean;
@@ -19,8 +18,8 @@ declare global {
     advance?: Boolean, // 是否在网络层获取data
   }
 
-  interface YZSResponse<T = any> extends AxiosResponse {
-    config: YZSRequest;
+  interface YZSResponse<T = any, D = any> extends AxiosResponse<T, D> {
+    config: AxiosResponse['config'] & YZSRequest;
     data: { code?: number, success?: Boolean, lang?: string, msg?: string, data?: T };
   }
   

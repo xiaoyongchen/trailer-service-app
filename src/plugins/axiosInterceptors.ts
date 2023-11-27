@@ -1,6 +1,7 @@
+import type { AxiosRequestHeaders, InternalAxiosRequestConfig } from 'axios';
 import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from './axiosConfig';
 
-export function requestSuccessFunc(config: YZSRequest): YZSRequest | null {
+export function requestSuccessFunc(config: YZSRequest): YZSRequest | Promise<YZSRequest> {
   // showLoading在自定义属性，还可以设置其他参数设置
   // const { showLoading = false } = requestConfig;
   // showLoading && message.loading({ content: '加载中...', key: requestConfig.url, duration: 0 })
@@ -14,7 +15,7 @@ export function requestSuccessFunc(config: YZSRequest): YZSRequest | null {
   return config;
 }
 
-export function requestFailFunc(requestError: any) {
+export function requestFailFunc(requestError: YZSRequest) {
   CONSOLE_REQUEST_ENABLE &&
     console.info(
       "requestInterceptorFunc",
@@ -26,7 +27,7 @@ export function requestFailFunc(requestError: any) {
   return Promise.reject(requestError);
 }
 
-export function responseSuccessFunc(response: YZSResponse) {
+export function responseSuccessFunc(response: YZSResponse): YZSResponse | Promise<YZSResponse> {
   CONSOLE_RESPONSE_ENABLE &&
     console.info("响应返回成功", `url: ${response.config.url}`, response);
 
