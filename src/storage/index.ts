@@ -35,7 +35,7 @@ const syncStorage = {
       } catch (e) {
         v = value;
       }
-      return localStorage.setStorageSync(key, v);
+      return uni.setStorageSync(key, v);
     }
 
     return Promise.reject("请使用正确的key or value");
@@ -43,10 +43,14 @@ const syncStorage = {
 
   removeItem(key: keyof typeof localStorageKeys) {
     try {
-      return localStorage.removeItem(key);
+      return uni.removeStorageSync(key);
     } catch (error) {
       return Promise.reject(error);
     }
+  },
+
+  clear() {
+    uni.clearStorageSync();
   },
 };
 
