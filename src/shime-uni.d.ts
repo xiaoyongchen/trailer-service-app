@@ -23,4 +23,7 @@ declare global {
     config: YZSRequest;
     data: { code?: number, success?: Boolean, lang?: string, msg?: string, data?: T };
   }
+  
 }
+
+declare module "uview-plus"
