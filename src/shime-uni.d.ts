@@ -22,7 +22,4 @@ declare global {
     config: AxiosResponse['config'] & YZSRequest<D>;
     data: { code?: number, success?: Boolean, lang?: string, msg?: string, data?: T };
   }
-  
 }
-
-declare module "uview-plus"
