@@ -1,5 +1,6 @@
 import { createSSRApp } from "vue";
 import App from "./App.vue";
+import "normalize.css/normalize.css";
 import { createPinia } from "pinia";
 import uviewPlus from 'uview-plus';
 
