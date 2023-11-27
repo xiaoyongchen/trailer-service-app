@@ -12,11 +12,13 @@
 import { useUserStore } from '@/store/userStore';
 import { onMounted } from 'vue';
 import { apiCommonGetDict } from '@/services/common';
+import syncStorage from '@/storage';
 
 const userStore = useUserStore();
 onMounted(() => {
   userStore.login('老王', '123456');
   apiCommonGetDict();
+  syncStorage.setItem('token', 'token');
 });
 </script>
 

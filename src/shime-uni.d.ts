@@ -20,6 +20,6 @@ declare global {
 
   interface YZSResponse<T = any, D = any> extends AxiosResponse<T> {
     config: AxiosResponse['config'] & YZSRequest<D>;
-    data: { code?: number, success?: Boolean, lang?: string, msg?: string, data?: T };
+    data: { code?: number, success?: Boolean, lang?: string, msg?: string, errMessage?: string, data?: T };
   }
 }

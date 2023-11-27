@@ -1,13 +1,12 @@
 {
   "easycom": {
-		// 注意一定要放在custom里，否则无效，https://ask.dcloud.net.cn/question/131175
 		"custom": {
 			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
 			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-	        "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+	    "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
 		}
 	},
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/tabBar/home/index",
 			"style": {
@@ -18,21 +17,24 @@
 			"path": "pages/tabBar/orders/index",
 			"style": {
 				"navigationBarTitleText": "接单大厅"
-				}
 			}
 		},
     {
 			"path": "pages/tabBar/services/index",
 			"style": {
 				"navigationBarTitleText": "服务大厅"
-				}
 			}
 		},
     {
 			"path": "pages/tabBar/mine/index",
 			"style": {
 				"navigationBarTitleText": "我的"
-				}
+			}
+		},
+    {
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
 			}
 		}
 	],

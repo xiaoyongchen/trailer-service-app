@@ -1,23 +1,13 @@
 <template>
   <view class="content">
-	  <text class="title">{{ userStore.name }}</text>
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ userStore.name }}</text>
-    </view>
+	  <text class="title">{{ token }}</text>
   </view>
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@/store/userStore';
-import { onMounted } from 'vue';
-import { apiCommonGetDict } from '@/services/common';
+import syncStorage from '@/storage';
 
-const userStore = useUserStore();
-onMounted(() => {
-  userStore.login('老王', '123456');
-  apiCommonGetDict();
-});
+const token = syncStorage.getItem('token');
 </script>
 
 <style lang="scss" scoped>

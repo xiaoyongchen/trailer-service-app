@@ -1,10 +1,9 @@
-import type { AxiosRequestHeaders, InternalAxiosRequestConfig } from 'axios';
 import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from './axiosConfig';
-
+// import { Toast } from 'uview-plus';
 export function requestSuccessFunc(config: YZSRequest): YZSRequest | Promise<YZSRequest> {
   // showLoading在自定义属性，还可以设置其他参数设置
-  // const { showLoading = false } = requestConfig;
-  // showLoading && message.loading({ content: '加载中...', key: requestConfig.url, duration: 0 })
+  // const { showLoading = false } = config;
+  // showLoading && Toast({ type: 'loading', loading: true, duration: 1000 * 2 * 10,  message: '正在加载' });
 
   CONSOLE_REQUEST_ENABLE &&
     console.log(
@@ -23,14 +22,14 @@ export function requestFailFunc(requestError: YZSRequest) {
       requestError
     );
 
-  // message.destroy();
   return Promise.reject(requestError);
 }
 
 export function responseSuccessFunc(response: YZSResponse): YZSResponse | Promise<YZSResponse> {
   CONSOLE_RESPONSE_ENABLE &&
     console.info("响应返回成功", `url: ${response.config.url}`, response);
-
+  // const { showLoading } = response.config || {};
+  // showLoading && Toast({ type: 'loading', loading: false,  message: '' });
   if (response.status !== 200) {
     // response?.statusText && message.error(responseObj.statusText);
     // 处理系统报错 todo...
@@ -47,6 +46,11 @@ export function responseSuccessFunc(response: YZSResponse): YZSResponse | Promis
   if (!response.data.success) {
     // 处理业务报错todo...
     // response?.data?.errMessage && message.error(responseObj.data.errMessage);
+    // const msg = response.data?.errMessage || response.data.msg;
+    // msg && Toast({
+    //   type: 'error',
+    //   message: msg
+    // });
 
     return Promise.reject(response.data);
   }
@@ -56,12 +60,18 @@ export function responseSuccessFunc(response: YZSResponse): YZSResponse | Promis
 }
 
 export function responseFailFunc(responseError: any) {
-  const msg = responseError.message || responseError?.response?.status;
-  // msg && message.error(msg);
+  // const msg = responseError.message || responseError?.response?.status;
+  // msg && Toast({
+  //   type: 'error',
+  //   message: msg
+  // });
 
   // 网络层拦截
   if (responseError?.response?.status == 401) {
     // TODO 【陈小勇】登出;
+    uni.navigateTo({
+      url: '/pages/login/index'
+    });
     return Promise.reject(responseError);
   }
 
