@@ -19,3 +19,6 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# 不提交单个文件
+CXYREADME.md
