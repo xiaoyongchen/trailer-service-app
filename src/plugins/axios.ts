@@ -8,8 +8,8 @@ import { requestFailFunc, requestSuccessFunc, responseFailFunc, responseSuccessF
  * @param config 请求参数 拓展了过滤|序列化|请求提前拦截 filterParams stringify advance
  */
 // 是否在网络层进行拦截 | 导出时用到
-export type Response<ADVANCE = false> = ADVANCE extends true ? YZSResponse | Promise<YZSResponse> | undefined : YZSResponse['data'] | Promise<YZSResponse['data']> | undefined;
-export default function request(config: Partial<YZSRequest>): Response<typeof config.advance>{
+type Response<ADVANCE, T = any, D = any> = ADVANCE extends true ? YZSResponse<T, D> | Promise<YZSResponse<T, D>> | undefined : YZSResponse<T, D>['data'] | Promise<YZSResponse<T, D>['data']> | undefined;
+export default function request<T = any, D = any, ADVANCE = false>(config: Partial<YZSRequest<T>>): Response<ADVANCE, T, D>{
   let { url, method, filterParams = true, stringify = false, params = {}, data = {} } = config || {};
   // 首字符应该为“/”
   if (typeof url === 'string' && !/^\//.test(url)) {

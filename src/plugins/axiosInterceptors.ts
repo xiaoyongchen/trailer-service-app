@@ -51,6 +51,7 @@ export function responseSuccessFunc(response: YZSResponse): YZSResponse | Promis
     return Promise.reject(response.data);
   }
 
+  //@ts-ignore
   return response.data;
 }
 

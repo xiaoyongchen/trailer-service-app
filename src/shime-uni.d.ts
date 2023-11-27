@@ -9,7 +9,7 @@ import { InternalAxiosRequestConfig,  AxiosRequest, AxiosResponse, Method } from
 
 declare global {
 
-  interface YZSRequest<T = any> extends InternalAxiosRequestConfig<T> {
+  interface YZSRequest<D = any> extends InternalAxiosRequestConfig<D> {
     // 常见的媒体格式
     contentType?: 'application/json' | 'application/x-www-form-urlencoded' | 'multipart/form-data' | 'application/octet-stream';
     showLoading?: boolean;
@@ -18,8 +18,8 @@ declare global {
     advance?: Boolean, // 是否在网络层获取data
   }
 
-  interface YZSResponse<T = any, D = any> extends AxiosResponse<T, D> {
-    config: AxiosResponse['config'] & YZSRequest;
+  interface YZSResponse<T = any, D = any> extends AxiosResponse<T> {
+    config: AxiosResponse['config'] & YZSRequest<D>;
     data: { code?: number, success?: Boolean, lang?: string, msg?: string, data?: T };
   }
   
