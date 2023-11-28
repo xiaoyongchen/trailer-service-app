@@ -6,3 +6,12 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module "uview-plus";
+declare module "uview-plus" {
+  global {
+    interface Uni {
+      $u: any;
+    }
+  }
+}

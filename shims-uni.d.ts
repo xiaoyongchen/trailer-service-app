@@ -8,5 +8,3 @@ declare module '@vue/runtime-core' {
 
   }
 }
-
-declare module "uview-plus";
