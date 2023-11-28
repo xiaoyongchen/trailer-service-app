@@ -1,5 +1,4 @@
 import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from './axiosConfig';
-// import { Toast } from 'uview-plus';
 export function requestSuccessFunc(config: YZSRequest): YZSRequest | Promise<YZSRequest> {
   // showLoading在自定义属性，还可以设置其他参数设置
   const { showLoading = false } = config;
