@@ -6,7 +6,8 @@
       />
       <view class="swiper">
         <text class="title">文案</text>
-        <uni-icons type="cart" size="30"></uni-icons>
+        <!-- 自定义https://www.uviewui.com/guide/customIcon.html -->
+        <u-icon name="photo"></u-icon>
         <up-swiper
             :list="list"
             previousMargin="30px"
