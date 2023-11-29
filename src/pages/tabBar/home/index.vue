@@ -1,25 +1,27 @@
 <template>
   <view class="content">
-	  <text class="title">{{ userStore.name }}</text>
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ userStore.name }}</text>
-    </view>
+      <view class="swiper">
+        <up-swiper
+            :list="list"
+            previousMargin="30px"
+            nextMargin="30px"
+            circular
+            :autoplay="false"
+            radius="5"
+            bgColor="#ffffff"
+            height="230px"
+        ></up-swiper>
+      </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@/store/userStore';
-import { onMounted } from 'vue';
-import { apiCommonGetDict } from '@/services/common';
-import syncStorage from '@/storage';
-
-const userStore = useUserStore();
-onMounted(() => {
-  userStore.login('老王', '123456');
-  apiCommonGetDict();
-  syncStorage.setItem('token', 'token');
-});
+import { ref } from 'vue';
+const list = ref([
+  'http://image.driverglobe.com/default/20231013/80cd3f70ab8086a11d839efac3d05b6a.png',
+  'http://image.driverglobe.com/default/20231013/80cd3f70ab8086a11d839efac3d05b6a.png',
+  'http://image.driverglobe.com/default/20231013/80cd3f70ab8086a11d839efac3d05b6a.png'
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -28,6 +30,12 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #f5f5f5;
+  .swiper {
+    margin: 100rpx 30rpx;
+    width: calc(100% - 60rpx);
+  }
+
   .title {
     background-color: red;
   }

@@ -11,12 +11,10 @@
 <script setup lang="ts">
 import { useUserStore } from '@/store/userStore';
 import { onMounted } from 'vue';
-import { apiCommonGetDict } from '@/services/common';
 
 const userStore = useUserStore();
 onMounted(() => {
   userStore.login('老王', '123456');
-  apiCommonGetDict();
 });
 </script>
 
@@ -27,7 +25,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   .title {
-    background-color: red;
+    color: var(uni-color-title);
   }
 }
 

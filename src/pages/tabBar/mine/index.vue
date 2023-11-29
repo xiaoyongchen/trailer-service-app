@@ -26,9 +26,6 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .title {
-    background-color: red;
-  }
 }
 
 .logo {

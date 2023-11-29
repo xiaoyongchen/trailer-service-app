@@ -10,25 +10,30 @@
 		{
 			"path": "pages/tabBar/home/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+        "navigationBarBackgroundColor": "#ff0005"
 			}
 		},
     {
 			"path": "pages/tabBar/orders/index",
 			"style": {
-				"navigationBarTitleText": "接单大厅"
+				"navigationBarTitleText": "接单大厅",
+        "navigationBarBackgroundColor": "#f48406"
 			}
 		},
     {
 			"path": "pages/tabBar/services/index",
 			"style": {
-				"navigationBarTitleText": "服务大厅"
+				"navigationBarTitleText": "服务大厅",
+        "navigationBarBackgroundColor": "#198efd"
+
 			}
 		},
     {
 			"path": "pages/tabBar/mine/index",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#12c44f"
 			}
 		},
     {
