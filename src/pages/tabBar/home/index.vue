@@ -1,5 +1,9 @@
 <template>
   <view class="content">
+      <up-navbar
+          title="个人中心"
+          :autoBack="true"
+      />
       <view class="swiper">
         <up-swiper
             :list="list"
@@ -32,7 +36,7 @@ const list = ref([
   justify-content: center;
   background-color: #f5f5f5;
   .swiper {
-    margin: 100rpx 30rpx;
+    margin: 80rpx 30rpx;
     width: calc(100% - 60rpx);
   }
 

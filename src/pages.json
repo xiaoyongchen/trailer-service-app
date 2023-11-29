@@ -10,6 +10,7 @@
 		{
 			"path": "pages/tabBar/home/index",
 			"style": {
+        "navigationStyle": "custom",
 				"navigationBarTitleText": "首页",
         "navigationBarBackgroundColor": "#ff0005"
 			}
