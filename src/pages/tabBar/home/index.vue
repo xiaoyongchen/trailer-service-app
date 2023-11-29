@@ -5,6 +5,8 @@
           :autoBack="true"
       />
       <view class="swiper">
+        <text class="title">文案</text>
+        <uni-icons type="cart" size="30"></uni-icons>
         <up-swiper
             :list="list"
             previousMargin="30px"
@@ -41,7 +43,7 @@ const list = ref([
   }
 
   .title {
-    background-color: red;
+    background-color: $uni-color-title;
   }
 }
 

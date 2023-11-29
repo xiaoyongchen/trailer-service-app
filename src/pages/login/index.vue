@@ -1,13 +1,39 @@
 <template>
   <view class="content">
 	  <text class="title">{{ token }}</text>
+    <up-button type="primary" @click="login" text="登录"></up-button>
   </view>
 </template>
 
 <script setup lang="ts">
+import { reactive } from 'vue';
 import syncStorage from '@/storage';
+import { onLoad } from '@dcloudio/uni-app';
 
 const token = syncStorage.getItem('token');
+const state = reactive({
+  uniIdRedirectUrl: '/pages/tabBar/home/index',
+});
+onLoad((options: any) => {
+  if (options.uniIdRedirectUrl) {
+    state.uniIdRedirectUrl = decodeURIComponent(options?.uniIdRedirectUrl);
+  }
+});
+
+async function login() {
+  // 登录成功, 重定向
+  if (state.uniIdRedirectUrl) {
+    if (state.uniIdRedirectUrl.includes('pages/tabBar/')) {
+      uni.switchTab({
+        url: state.uniIdRedirectUrl
+      })
+      return;
+    }
+    uni.redirectTo({
+      url: state.uniIdRedirectUrl
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>

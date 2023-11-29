@@ -7,43 +7,54 @@
 		}
 	},
 	"pages": [
+    {
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
 		{
 			"path": "pages/tabBar/home/index",
 			"style": {
         "navigationStyle": "custom",
 				"navigationBarTitleText": "首页",
-        "navigationBarBackgroundColor": "#ff0005"
+        "navigationBarBackgroundColor": "#ff0005",
+        "needLogin": false 
 			}
 		},
     {
 			"path": "pages/tabBar/orders/index",
 			"style": {
 				"navigationBarTitleText": "接单大厅",
-        "navigationBarBackgroundColor": "#f48406"
+        "navigationBarBackgroundColor": "#f48406",
+        "needLogin": true
 			}
 		},
     {
 			"path": "pages/tabBar/services/index",
 			"style": {
 				"navigationBarTitleText": "服务大厅",
-        "navigationBarBackgroundColor": "#198efd"
-
+        "navigationBarBackgroundColor": "#198efd",
+        "needLogin": true
 			}
 		},
     {
 			"path": "pages/tabBar/mine/index",
 			"style": {
 				"navigationBarTitleText": "我的",
-        "navigationBarBackgroundColor": "#12c44f"
-			}
-		},
-    {
-			"path": "pages/login/index",
-			"style": {
-				"navigationBarTitleText": "登录"
+        "navigationBarBackgroundColor": "#12c44f",
+        "needLogin": false
 			}
 		}
 	],
+  "uniIdRouter": {
+    "loginPage": "pages/login/index",
+    "needLogin": [
+      "pages/tabBar/orders/*",
+      "pages/tabBar/services/*"
+    ],
+    "resToLogin": true // 自动解析云对象及clientDB的错误码，如果是客户端token不正确或token过期则自动跳转配置的登录页面，配置为false则关闭此行为，默认true
+  },
 	"globalStyle": {
 		"pageOrientation": "portrait",
 		"navigationBarTitleText": "Hello uniapp",
