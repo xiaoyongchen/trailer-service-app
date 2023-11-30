@@ -4,8 +4,42 @@
 
 ### pinia 对应vue版本只能写死
 
-###
 
+## vue3 最低的版本要求
+
+node：10.13
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm dev:[platform]
+```
+
+### Compiles and minifies for production
+```
+npm build:[platform]
+```
+
+### Run your unit tests
+```
+后续加
+```
+
+### Lints and fixes files
+```
+后续加
+```
+
+### 分支功能说明
+
+ * fat 如果这个项目在fat环境 用于多个分支同步开发，用于合并代码发布到服务器，防止代码冲掉
+ * release 跟fat一致功能差不多，用于预发布环境
+ * master 主分支
+ * 业务分支，分支id来取名，发布到线上打了tag删除。
 
 ### 项目结构
 ├── src // 存放webpack编译脚本
