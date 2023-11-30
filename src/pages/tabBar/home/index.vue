@@ -1,22 +1,15 @@
 <template>
   <view class="content">
-      <up-navbar
-          title="个人中心"
-          :autoBack="true"
-      />
       <view class="swiper">
-        <text class="title">文案</text>
-        <!-- 自定义https://www.uviewui.com/guide/customIcon.html -->
-        <u-icon name="photo"></u-icon>
         <up-swiper
-            :list="list"
-            previousMargin="30px"
-            nextMargin="30px"
-            circular
-            :autoplay="false"
-            radius="5"
-            bgColor="#ffffff"
-            height="230px"
+          :list="list"
+          previousMargin="30px"
+          nextMargin="30px"
+          circular
+          :autoplay="false"
+          radius="5"
+          bgColor="#ffffff"
+          height="230px"
         ></up-swiper>
       </view>
   </view>

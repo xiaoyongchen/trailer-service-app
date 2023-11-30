@@ -25,6 +25,7 @@
     {
 			"path": "pages/tabBar/orders/index",
 			"style": {
+        "navigationStyle": "custom",
 				"navigationBarTitleText": "接单大厅",
         "navigationBarBackgroundColor": "#f48406",
         "needLogin": true
@@ -41,6 +42,7 @@
     {
 			"path": "pages/tabBar/mine/index",
 			"style": {
+        "navigationStyle": "custom",
 				"navigationBarTitleText": "我的",
         "navigationBarBackgroundColor": "#12c44f",
         "needLogin": false

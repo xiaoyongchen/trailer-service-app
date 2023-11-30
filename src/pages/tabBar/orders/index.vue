@@ -1,5 +1,9 @@
 <template>
   <view class="content">
+    <up-navbar
+        title="个人中心"
+        :autoBack="false"
+    />
 	  <text class="title">{{ userStore.name }}</text>
     <image class="logo" src="/static/logo.png" />
     <view class="text-area">
