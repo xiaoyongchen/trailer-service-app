@@ -26,3 +26,6 @@ CXYREADME.md
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
+
+## 本地打包配置不提交
+.hbuilderx
