@@ -1,10 +1,19 @@
 const config =  {
-  MP_WINXIN_APPID: import.meta.env.VITE_APP_WX_APPID,
-  MP_WINXIN_APPSECRET: import.meta.env.VITE_APP_WX_SECRET,
-  // MP_ALIPAY_APPID: import.meta.env.VITE_APP_WX_APPID,
-  // MP_ALIPAY_APPSECRET: import.meta.env.VITE_APP_WX_SECRET,
+  development: {
+    MP_WINXIN_APPID: 'wxcfb5b31b7b09d0b1',
+    MP_WINXIN_APPSECRET: 'c0480af926b88074a3a2f3b2e07cddd5',
+  },
+  // TODO 【陈小勇】待填写;
+  production: {
+    MP_WINXIN_APPID: '',
+    MP_WINXIN_APPSECRET: '',
+  }
 };
 
-type Config = typeof config;
+type NODE_ENV_TYPE = 'development' | 'production';
 
-export default config as Config;
+const node_env = process.env.NODE_ENV as NODE_ENV_TYPE;
+
+type Config = (typeof config)[keyof typeof config];
+
+export default config[node_env] as Config;
