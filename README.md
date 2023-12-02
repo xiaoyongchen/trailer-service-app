@@ -12,7 +12,7 @@ node：10.13
 
 ## 项目要求
 ```
-node：>=16.14
+node：>=16.20.2
 ```
 
 ## Project setup
