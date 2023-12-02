@@ -10,6 +10,11 @@
 node：10.13
 ```
 
+## 项目要求
+```
+node：>=16.14
+```
+
 ## Project setup
 ```
 npm install
